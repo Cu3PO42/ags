@@ -23,6 +23,7 @@
 , libnotify
 , pam
 , polkit
+, accountsservice
 , extraPackages ? [ ]
 , version ? "git"
 , buildTypes ? false
@@ -47,7 +48,7 @@ stdenv.mkDerivation rec {
 
     dontBuild = true;
 
-    npmDepsHash = "sha256-KL8tTHoptMQE/KOlTTqoYn+dyejRLGhT2a5EizJBfKs=";
+    npmDepsHash = "sha256-5B+aDqzDk08gVP0JIIcTAyJEwEcZiH/9kZZseTvFhxU=";
 
     installPhase = ''
       mkdir $out
@@ -96,6 +97,7 @@ stdenv.mkDerivation rec {
     libnotify
     pam
     polkit
+    accountsservice
   ] ++ extraPackages;
 
   meta = with lib; {

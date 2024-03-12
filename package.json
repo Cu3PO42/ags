@@ -8,6 +8,7 @@
         "typescript": "^5.1.0"
     },
     "devDependencies": {
+        "@girs/accountsservice-1.0": "^1.0.0-3.2.7",
         "@girs/cairo-1.0": "^1.0.0-3.2.7",
         "@girs/dbusmenugtk3-0.4": "^0.4.0-3.2.0",
         "@girs/gjs": "^3.2.7",
