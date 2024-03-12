@@ -18,6 +18,7 @@
         "@girs/polkit-1.0": "^1.0.0-3.2.7",
         "@girs/polkitagent-1.0": "^1.0.0-3.2.7",
         "@girs/soup-3.0": "^3.4.4-3.2.6",
+        "@ts-for-gir/cli": "^3.2.9",
         "@typescript-eslint/eslint-plugin": "^5.33.0",
         "@typescript-eslint/parser": "^5.33.0",
         "eslint": "^8.42.0"

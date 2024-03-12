@@ -4,3 +4,6 @@ build
 run.sh
 tmp
 result
+result-*
+@types
+.cache

@@ -37,6 +37,13 @@ subproject('gutils',
   ]
 )
 
+subproject('gshell',
+  default_options: [
+    'pkgdatadir=' + pkgdatadir,
+    'pkglibdir=' + libdir,
+  ]
+)
+
 subdir('src')
 
 meson.add_install_script(
@@ -47,4 +54,17 @@ meson.add_install_script(
   app_id,
   get_option('build_types').to_string(),
   meson.project_source_root()
+)
+
+# TODO: filter only gir from this. variable has both gir and typelib
+gutils_gir = subproject('gutils').get_variable('gir')
+gshell_gir = subproject('gshell').get_variable('gir')
+custom_target(
+  'TypeScript Types for GIR',
+  input: [gutils_gir, gshell_gir],
+  depends: [gutils_gir, gshell_gir],
+  output: '@types',
+  command: [meson.current_source_dir() / 'generate_gir_dts.sh', meson.current_build_dir(), '@INPUT@', '@OUTPUT@'],
+  build_by_default: true,
+  build_always_stale: true
 )

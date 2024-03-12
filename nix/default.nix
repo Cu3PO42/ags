@@ -3,6 +3,7 @@
 , buildNpmPackage
 , fetchFromGitLab
 , nodePackages
+, nodejs
 , meson
 , pkg-config
 , ninja
@@ -46,7 +47,7 @@ stdenv.mkDerivation rec {
 
     dontBuild = true;
 
-    npmDepsHash = "sha256-Kxi2Yt9ey8gsuoAWWOc7XDFf0zufPUrdq4oIu66HaMI=";
+    npmDepsHash = "sha256-KL8tTHoptMQE/KOlTTqoYn+dyejRLGhT2a5EizJBfKs=";
 
     installPhase = ''
       mkdir $out
@@ -73,6 +74,7 @@ stdenv.mkDerivation rec {
     meson
     ninja
     nodePackages.typescript
+    nodejs
     wrapGAppsHook
     gobject-introspection
   ];

@@ -1,20 +1,20 @@
-project('pam', 'c')
+project('gshell', 'c')
 
 pkglibdir = get_option('pkglibdir')
 pkgdatadir = get_option('pkgdatadir')
 
 cc = meson.get_compiler('c')
 
-libsources = ['pam.c', 'pam.h']
+libsources = ['shell-polkit-agent.c', 'shell-polkit-agent.h']
 
 deps = [
   dependency('gobject-2.0'),
   dependency('gio-2.0'),
-  dependency('pam')
+  dependency('polkit-agent-1')
 ]
 
-libgutils = shared_library(
-  'gutils',
+libgshell = shared_library(
+  'gshell',
   sources: libsources,
   dependencies: deps,
   install: true
@@ -22,19 +22,14 @@ libgutils = shared_library(
 
 gnome = import('gnome')
 gir = gnome.generate_gir(
-  libgutils,
+  libgshell,
   sources: libsources,
   nsversion: '1.0',
-  namespace: 'GUtils',
-  symbol_prefix: 'gutils',
-  identifier_prefix: 'GUtils',
-  includes: ['GObject-2.0', 'Gio-2.0'],
+  namespace: 'GShell',
+  symbol_prefix: 'shell',
+  identifier_prefix: 'Shell',
+  includes: ['GObject-2.0', 'Gio-2.0', 'PolkitAgent-1.0'],
   install_dir_gir: pkgdatadir,
   install_dir_typelib: pkglibdir,
   install: true
 )[0]
-
-install_data(
-  'ags',
-  install_dir: get_option('sysconfdir') / 'pam.d'
-)
