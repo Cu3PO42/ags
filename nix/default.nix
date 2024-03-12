@@ -66,7 +66,9 @@ stdenv.mkDerivation rec {
 
   postPatch = ''
     chmod +x post_install.sh
+    chmod +x generate_gir_dts.sh
     patchShebangs post_install.sh
+    patchShebangs generate_gir_dts.sh
   '';
 
   nativeBuildInputs = [

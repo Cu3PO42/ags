@@ -56,7 +56,6 @@ meson.add_install_script(
   meson.project_source_root()
 )
 
-# TODO: filter only gir from this. variable has both gir and typelib
 gutils_gir = subproject('gutils').get_variable('gir')
 gshell_gir = subproject('gshell').get_variable('gir')
 custom_target(
@@ -64,7 +63,7 @@ custom_target(
   input: [gutils_gir, gshell_gir],
   depends: [gutils_gir, gshell_gir],
   output: '@types',
-  command: [meson.current_source_dir() / 'generate_gir_dts.sh', meson.current_build_dir(), '@INPUT@', '@OUTPUT@'],
+  command: [find_program('generate_gir_dts.sh'), meson.current_build_dir(), '@INPUT@', '@OUTPUT@'],
   build_by_default: true,
   build_always_stale: true
 )
