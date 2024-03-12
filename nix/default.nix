@@ -21,6 +21,7 @@
 , libsoup_3
 , libnotify
 , pam
+, polkit
 , extraPackages ? [ ]
 , version ? "git"
 , buildTypes ? true
@@ -45,7 +46,7 @@ stdenv.mkDerivation rec {
 
     dontBuild = true;
 
-    npmDepsHash = "sha256-ucWdADdMqAdLXQYKGOXHNRNM9bhjKX4vkMcQ8q/GZ20=";
+    npmDepsHash = "sha256-Kxi2Yt9ey8gsuoAWWOc7XDFf0zufPUrdq4oIu66HaMI=";
 
     installPhase = ''
       mkdir $out
@@ -90,6 +91,7 @@ stdenv.mkDerivation rec {
     libsoup_3
     libnotify
     pam
+    polkit
   ] ++ extraPackages;
 
   outputs = [ "out" "lib" ];
