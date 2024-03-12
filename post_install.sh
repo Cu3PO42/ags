@@ -30,7 +30,7 @@ function fixPaths {
 export -f fixPaths
 find $TYPES -type f | xargs -I % bash -c "fixPaths %"
 cp -r "$SRC/node_modules/@girs" "$TYPES/@girs"
-ls -d $SRC/node_modules/@types/ | grep -v gjs | xargs -I % cp -r % $TYPES/@girs
+find "$(pwd)/@types/" -maxdepth 1 -type d | tail -n+2 | grep -v 'gjs$' | xargs -I % cp -r % $TYPES/@girs
 
 
 # gen ags.d.ts
