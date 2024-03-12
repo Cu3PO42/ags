@@ -1,0 +1,1 @@
+This directory contains files from GNOME/gnome-shell, available under GPLv2 or later.
