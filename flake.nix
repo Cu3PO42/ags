@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    gtk-layer-shell.url = "/home/zimmermann/development/private/gtk-layer-shell";
+    gtk-layer-shell.url = "git+ssh://git@github.com/Cu3PO42/gtk-lock-shell.git";
     gtk-layer-shell.inputs.nixpkgs.follows = "nixpkgs";
   };
 
