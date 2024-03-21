@@ -17,10 +17,10 @@
       "aarch64-linux"
       "x86_64-linux"
     ];
-    pkgs = genSystems (system: import nixpkgs {inherit system;});
+    pkgs = genSystems (system: import nixpkgs {inherit system; overlays=[(final: prev: {gtk-layer-shell=gtk-layer-shell.packages.${system}.default;})];});
   in {
     packages = genSystems (system: rec {
-      default = pkgs.${system}.callPackage ./nix {inherit version; gtk-layer-shell = gtk-layer-shell.packages.${system}.default; };
+      default = pkgs.${system}.callPackage ./nix {inherit version; };
       ags = default;
       agsWithTypes = pkgs.${system}.callPackage ./nix {
         inherit version;
