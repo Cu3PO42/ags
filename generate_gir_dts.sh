@@ -18,4 +18,4 @@ cp "${INPUT_FILES[@]}" "$TMP_DIR/gir-1.0"
 
 export XDG_DATA_DIRS="$TMP_DIR:$XDG_DATA_DIRS"
 
-$TS_FOR_GIR generate --package --outdir "$OUTPUT_DIR" "${INPUT_FILES_NO_EXT[@]}"
+$TS_FOR_GIR generate --package --outdir "$OUTPUT_DIR" "${INPUT_FILES_NO_EXT[@]}" GtkLayerShell-0.1 SessionLock-0.1
