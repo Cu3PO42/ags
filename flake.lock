@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1711050134,
-        "narHash": "sha256-9hE5404e+HQElPqf6hXVf69W0971grf77As28MLOgEE=",
+        "lastModified": 1711093717,
+        "narHash": "sha256-TGb8bteYH3SC2T05Kr9Cpga56thM+mseNlKR+vXuMYQ=",
         "ref": "refs/heads/master",
-        "rev": "a0b17dee44f286830250283ab930738fc76e6b63",
-        "revCount": 510,
+        "rev": "45d0f02a2253cb641036f68083a0ab17cc1dfb6c",
+        "revCount": 512,
         "type": "git",
         "url": "ssh://git@github.com/Cu3PO42/gtk-lock-shell.git"
       },
