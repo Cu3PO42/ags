@@ -102,9 +102,16 @@ export class Greetd extends Service {
             ostream.put_string(json, null);
 
             const data = await istream.read_bytes_async(4, GLib.PRIORITY_DEFAULT, null);
-            const length = new Uint32Array(data.get_data()?.buffer || [0])[0];
+            const raw = data.get_data();
+            if (!raw) throw new Error("Failed to read length from greetd socket");
+            const view = new DataView(raw.buffer, raw.byteOffset, raw.byteLength);
+            const length = view.getUint32(0, true); // true = little endian
+
             const res = await istream.read_bytes_async(length, GLib.PRIORITY_DEFAULT, null);
-            return JSON.parse(this._decoder.decode(res.get_data()!)) as Response;
+            const resRaw = res.get_data();
+            if (!resRaw) throw new Error("Failed to read response from greetd socket");
+
+            return JSON.parse(this._decoder.decode(resRaw)) as Response;
         } finally {
             connection.close(null);
         }
