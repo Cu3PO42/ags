@@ -11,7 +11,7 @@
 , gtk3
 , libpulseaudio
 , gjs
-, wrapGAppsHook
+, wrapGAppsHook3
 , upower
 , gnome-bluetooth
 , gtk-layer-shell
@@ -78,7 +78,7 @@ stdenv.mkDerivation rec {
     ninja
     nodePackages.typescript
     nodejs
-    wrapGAppsHook
+    wrapGAppsHook3
     gobject-introspection
   ];
 
