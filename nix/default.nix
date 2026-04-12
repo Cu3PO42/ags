@@ -2,7 +2,7 @@
 , stdenv
 , buildNpmPackage
 , fetchFromGitLab
-, nodePackages
+, typescript
 , nodejs
 , meson
 , pkg-config
@@ -76,7 +76,7 @@ stdenv.mkDerivation rec {
     pkg-config
     meson
     ninja
-    nodePackages.typescript
+    typescript
     nodejs
     wrapGAppsHook3
     gobject-introspection
